@@ -118,8 +118,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 50,
                   child: TextButton(
                     onPressed: () {
-                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Ana_Sayfa()),);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Ana_Sayfa()),
+                      );
                     },
                     child: Text(
                       "GİRİŞ YAP",
@@ -360,30 +362,88 @@ class _Ana_SayfaState extends State<Ana_Sayfa> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      floatingActionButton: SizedBox(
+        width: 50,
+        height: 50,
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Icon(Icons.arrow_back),
+        ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 50),
-              Text(
-                "Mobil Bankacılık Uygulamamıza",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
+          SizedBox(height: 50),
+          Text(
+            "Mobil Bankacılık Uygulamamıza",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            "Hoş Geldiniz",
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.black,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "BİREYSEL",
+                    style: TextStyle(
+                      color: Colors.red.shade800,
+                      fontSize: 30,
+                    ),
+                  ),
+                ),
+                Text(
+                  " | ",
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.grey.shade300,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "KURUMSAL",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 30,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(40,0,40,0),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(100),),
+                  labelText: 'T.C. Kimlik / Müşteri Numaranız',
                 ),
               ),
-              SizedBox(height: 10),
-              Text(
-                "Hoş Geldiniz",
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black,
-                ),
+            ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(40,20,40,0),
+            child: TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(100),),
+                labelText: 'Şifreniz',
               ),
-
-            ],
+            ),
           ),
         ],
       ),
