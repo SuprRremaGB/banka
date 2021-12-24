@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -299,34 +301,43 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.grey.shade300),
-                              child: Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Icon(Icons.list_alt,
-                                    size: 40, color: Colors.red.shade800),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Diger_isler()),
+                          );
+                        },
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.grey.shade300),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Icon(Icons.list_alt,
+                                      size: 40, color: Colors.red.shade800),
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Diğer",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
+                              Text(
+                                "Diğer",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "İşlemler",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
+                              Text(
+                                "İşlemler",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -362,16 +373,6 @@ class _Ana_SayfaState extends State<Ana_Sayfa> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      floatingActionButton: SizedBox(
-        width: 50,
-        height: 50,
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Icon(Icons.arrow_back),
-        ),
-      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -426,27 +427,131 @@ class _Ana_SayfaState extends State<Ana_Sayfa> {
               ],
             ),
           ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(40,0,40,0),
-              child: TextField(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                labelText: '  T.C. Kimlik / Müşteri Numaranız',
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
+            child: Stack(children: [
+              TextField(
+                obscureText: true,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(100),),
-                  labelText: 'T.C. Kimlik / Müşteri Numaranız',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  labelText: '  Şifreniz',
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Text(
+                      "Şifremi Unuttum",
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ]),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Colors.red.shade800,
+                border: Border.all(color: Colors.red.shade800, width: 3)),
+            width: 300,
+            height: 50,
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                "Devam",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
                 ),
               ),
             ),
+          ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(40,20,40,0),
-            child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(100),),
-                labelText: 'Şifreniz',
+            padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
+            child: Divider(
+              color: Colors.grey.shade300,
+            ),
+          ),
+          Text(
+            "Dijital Bankacılık müşterimiz olmak için",
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Colors.white,
+                border: Border.all(color: Colors.black, width: 3)),
+            width: 300,
+            height: 50,
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                "HEMEN BAŞVUR",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.grey.shade100),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Icon(Icons.close),
+                    Text("Kapat"),
+                  ],
+                ),
               ),
             ),
           ),
         ],
       ),
     );
+  }
+}
+
+class Diger_isler extends StatefulWidget {
+  const Diger_isler({Key? key}) : super(key: key);
+
+  @override
+  _Diger_islerState createState() => _Diger_islerState();
+}
+
+class _Diger_islerState extends State<Diger_isler> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
