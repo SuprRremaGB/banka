@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -552,6 +551,25 @@ class Diger_isler extends StatefulWidget {
 class _Diger_islerState extends State<Diger_isler> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
+          child: Text(
+            "İşlemler      ",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        leading: Icon(Icons.arrow_back_ios,color: Colors.black,),
+      ),
+      body: ListView(
+        children: [
+
+        ],
+      ),
+    );
   }
 }
