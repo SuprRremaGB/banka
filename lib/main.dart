@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:banka/Container_Design.dart';
 
 void main() {
   runApp(const Sayfa1());
@@ -563,11 +564,35 @@ class _Diger_islerState extends State<Diger_isler> {
             ),
           ),
         ),
-        leading: Icon(Icons.arrow_back_ios,color: Colors.black,),
+        leading: Icon(Icons.arrow_back_ios, color: Colors.black),
       ),
       body: ListView(
         children: [
-
+          GestureDetector(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 2,color: Colors.grey),
+                color: Colors.white,
+              ),
+              width: double.infinity,
+              height: 70,
+              child: Center(
+                child: Row(
+                  children: [
+                    SizedBox(width: 15),
+                    Icon(Icons.calculate,size: 45,color: Colors.red.shade800),
+                    SizedBox(width: 20),
+                    Text("Hesap Makinesi",style: TextStyle(fontSize: 20)),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child:Icon(Icons.arrow_forward_ios) ,
+                    ),
+                    SizedBox(width: 10),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
