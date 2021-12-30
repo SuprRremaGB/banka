@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Container_Design.dart';
+import 'Gercek_AnaSayfa.dart';
 
 class Giris_Sayfa extends StatefulWidget {
   const Giris_Sayfa({Key? key}) : super(key: key);
@@ -111,20 +112,31 @@ class _Giris_SayfaState extends State<Giris_Sayfa> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20,0,20,0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: Colors.red.shade800,
-                        border: Border.all(color: Colors.red.shade800, width: 3)),
-                    width: double.infinity,
-                    height: 50,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Devam",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Gercek_Ana()),
+                        );
+                      }
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: Colors.red.shade800,
+                          border: Border.all(color: Colors.red.shade800, width: 3)),
+                      width: double.infinity,
+                      height: 50,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Devam",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
