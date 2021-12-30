@@ -1,13 +1,18 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:banka/Container_Design.dart';
+import 'Container_Design.dart';
+import 'Alper_Onay_Sayfasi.dart';
+import 'Diger_Islemler_Sayfasi.dart';
+import 'Giris_Sayfasi.dart';
+import 'Kolay_Adres_Sayfasi.dart';
+import 'QR_Kod_Islemleri_Sayfasi.dart';
 
 void main() {
-  runApp(const Sayfa1());
+  runApp(const MyApp());
 }
 
-class Sayfa1 extends StatelessWidget {
-  const Sayfa1({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -122,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Ana_Sayfa()),
+                        MaterialPageRoute(builder: (context) => Giris_Sayfa()),
                       );
                     },
                     child: Text(
@@ -181,64 +186,86 @@ class _MyHomePageState extends State<MyHomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.grey.shade300),
-                              child: Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Icon(Icons.qr_code_2,
-                                    size: 40, color: Colors.red.shade800),
+                      GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Qr_Kod_Islemleri()),
+                            );
+                          });
+                        },
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.grey.shade300),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Icon(Icons.qr_code_2,
+                                      size: 40, color: Colors.red.shade800),
+                                ),
                               ),
-                            ),
-                            Text(
-                              "QR Kod",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
+                              Text(
+                                "QR Kod",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "İşlemleri",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
+                              Text(
+                                "İşlemleri",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.grey.shade300),
-                              child: Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Icon(Icons.sync_alt,
-                                    size: 40, color: Colors.red.shade800),
+                      GestureDetector(
+                        onTap:(){
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Kolay_Adres()),
+                            );
+                          });
+                        },
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.grey.shade300),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Icon(Icons.sync_alt,
+                                      size: 40, color: Colors.red.shade800),
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Kolay",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
+                              Text(
+                                "Kolay",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Adres",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
+                              Text(
+                                "Adres",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                       Container(
@@ -271,34 +298,45 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      Container(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.grey.shade300),
-                              child: Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Icon(Icons.check_circle,
-                                    size: 40, color: Colors.red.shade800),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Alper_Onay()),
+                            );
+                          });
+                        },
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.grey.shade300),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Icon(Icons.check_circle,
+                                      size: 40, color: Colors.red.shade800),
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Alper",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
+                              Text(
+                                "Alper",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Onay",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
+                              Text(
+                                "Onay",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                       GestureDetector(
@@ -361,240 +399,5 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class Ana_Sayfa extends StatefulWidget {
-  const Ana_Sayfa({Key? key}) : super(key: key);
 
-  @override
-  _Ana_SayfaState createState() => _Ana_SayfaState();
-}
 
-class _Ana_SayfaState extends State<Ana_Sayfa> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: 50),
-          Text(
-            "Mobil Bankacılık Uygulamamıza",
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black,
-            ),
-          ),
-          SizedBox(height: 10),
-          Text(
-            "Hoş Geldiniz",
-            style: TextStyle(
-              fontSize: 25,
-              color: Colors.black,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "BİREYSEL",
-                    style: TextStyle(
-                      color: Colors.red.shade800,
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
-                Text(
-                  " | ",
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.grey.shade300,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "KURUMSAL",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 30,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                labelText: '  T.C. Kimlik / Müşteri Numaranız',
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
-            child: Stack(children: [
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  labelText: '  Şifreniz',
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Text(
-                      "Şifremi Unuttum",
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ]),
-          ),
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: Colors.red.shade800,
-                border: Border.all(color: Colors.red.shade800, width: 3)),
-            width: 300,
-            height: 50,
-            child: TextButton(
-              onPressed: () {},
-              child: Text(
-                "Devam",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 15, 0, 15),
-            child: Divider(
-              color: Colors.grey.shade300,
-            ),
-          ),
-          Text(
-            "Dijital Bankacılık müşterimiz olmak için",
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-            ),
-          ),
-          SizedBox(height: 10),
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: Colors.white,
-                border: Border.all(color: Colors.black, width: 3)),
-            width: 300,
-            height: 50,
-            child: TextButton(
-              onPressed: () {},
-              child: Text(
-                "HEMEN BAŞVUR",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(height: 20),
-          GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.grey.shade100),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Icon(Icons.close),
-                    Text("Kapat"),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Diger_isler extends StatefulWidget {
-  const Diger_isler({Key? key}) : super(key: key);
-
-  @override
-  _Diger_islerState createState() => _Diger_islerState();
-}
-
-class _Diger_islerState extends State<Diger_isler> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            "İşlemler      ",
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        leading: Icon(Icons.arrow_back_ios, color: Colors.black),
-      ),
-      body: ListView(
-        children: [
-          GestureDetector(
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(width: 2,color: Colors.grey),
-                color: Colors.white,
-              ),
-              width: double.infinity,
-              height: 70,
-              child: Center(
-                child: Row(
-                  children: [
-                    SizedBox(width: 15),
-                    Icon(Icons.calculate,size: 45,color: Colors.red.shade800),
-                    SizedBox(width: 20),
-                    Text("Hesap Makinesi",style: TextStyle(fontSize: 20)),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child:Icon(Icons.arrow_forward_ios) ,
-                    ),
-                    SizedBox(width: 10),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
