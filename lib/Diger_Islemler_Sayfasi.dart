@@ -24,7 +24,7 @@ class _Diger_islerState extends State<Diger_isler> {
             ),
           ),
         ),
-        leading: Icon(Icons.arrow_back_ios, color: Colors.black),
+        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios, color: Colors.black)),
       ),
       body: ListView(
         children: [

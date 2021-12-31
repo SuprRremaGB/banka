@@ -18,7 +18,7 @@ class Alper_Onay extends StatelessWidget {
             ),
           ),
         ),
-        leading: Icon(Icons.arrow_back_ios, color: Colors.black),
+        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios, color: Colors.black)),
       ),
       body: Column(
         children: [

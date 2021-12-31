@@ -19,7 +19,7 @@ class Qr_Kod_Islemleri extends StatelessWidget {
             ),
           ),
         ),
-        leading: Icon(Icons.arrow_back_ios, color: Colors.black),
+        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back_ios, color: Colors.black)),
       ),
       body: ListView(
         children: [

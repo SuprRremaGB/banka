@@ -88,7 +88,7 @@ class _Giris_SayfaState extends State<Giris_Sayfa> {
               children: [
                 Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                    child: TextBoxuDes("  T.C. Kimlik / Müşteri Numaranız")
+                    child: TextBoxuDes("  T.C. Kimlik / Müşteri Numaranız"),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -112,31 +112,25 @@ class _Giris_SayfaState extends State<Giris_Sayfa> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20,0,20,0),
-                  child: GestureDetector(
-                    onTap: (){
-                      setState(() {
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: Colors.red.shade800,
+                        border: Border.all(color: Colors.red.shade800, width: 3)),
+                    width: double.infinity,
+                    height: 50,
+                    child: TextButton(
+                      onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Gercek_Ana()),
                         );
-                      }
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: Colors.red.shade800,
-                          border: Border.all(color: Colors.red.shade800, width: 3)),
-                      width: double.infinity,
-                      height: 50,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Devam",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
+                      },
+                      child: Text(
+                        "Devam",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -223,7 +217,12 @@ class _Giris_SayfaState extends State<Giris_Sayfa> {
                     width: double.infinity,
                     height: 50,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Gercek_Ana()),
+                        );
+                      },
                       child: Text(
                         "Devam",
                         style: TextStyle(
