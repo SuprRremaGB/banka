@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'Container_Design.dart';
-
 class Gercek_Ana extends StatefulWidget {
   const Gercek_Ana({Key? key}) : super(key: key);
 
