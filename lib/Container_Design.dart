@@ -63,9 +63,13 @@ class TextBoxuDes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 60,
       child: TextField(
         maxLines: null,
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: 12,
+        ),
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(100),

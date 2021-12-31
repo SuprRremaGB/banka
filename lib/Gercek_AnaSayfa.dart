@@ -1,3 +1,5 @@
+import 'package:banka/Diger_Islemler_Sayfasi.dart';
+import 'package:banka/Menu_Islemleri.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -263,10 +265,10 @@ class _Gercek_AnaState extends State<Gercek_Ana> {
           ),
           Expanded(flex: 1, child: SizedBox(height: 3)),
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Colors.grey.shade800,
               ),
               width: double.infinity,
               height: 50,
@@ -275,59 +277,65 @@ class _Gercek_AnaState extends State<Gercek_Ana> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(
-                        Icons.search,
-                        color: Colors.grey,
-                        size: 30,
-                      ),
+                      SizedBox(width: 10),
+
                       Expanded(
-                        flex: 5,
+                        flex: 4,
                         child: Container(
-                          height: 50,
-                          width: 300,
-                          child: TextField(
-                            maxLines: null,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              labelText: "Aramadığınız İşlemi Yazın",
-                              labelStyle: TextStyle(
-                                fontSize: 16,
+                          height: 60,
+                          width: 10,
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: TextField(
+                              maxLines: null,
+                              style: TextStyle(
                                 color: Colors.grey,
+                                fontSize: 16,
+                              ),
+                              decoration: InputDecoration(
+                                icon: Icon(Icons.search,size: 30,color: Colors.grey),
+                                contentPadding: EdgeInsets.symmetric(vertical: 2),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                labelText: "Aramadığınız İşlemi Yazın",
                               ),
                             ),
                           ),
                         ),
                       ),
+                      Container(width: 2,height: 70, color: Colors.grey.shade900),
                       Expanded(
                         flex: 1,
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {});
-                          },
-                          child: Container(
-                            child: Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.grey.shade800),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.grey.shade800),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => Menu_Islem()),
+                                      );
+                                    },
                                     child: Icon(Icons.menu,
-                                        size: 40, color: Colors.white),
+                                          size: 40, color: Colors.white),
                                   ),
                                 ),
-                                Text(
-                                  "Menu",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 12,
-                                  ),
+                              ),
+                              Text(
+                                "Menu",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
